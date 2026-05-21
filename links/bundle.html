@@ -70,38 +70,23 @@
 
     /* ── VIDEO PLACEHOLDER ── */
     .video-card {
-      background: var(--card);
-      border: 1px dashed #2A2A2A;
       border-radius: 18px;
       overflow: hidden;
       margin-bottom: 1rem;
       opacity: 0;
       transform: translateY(12px);
       animation: up 0.6s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
     }
-    .video-inner {
-      padding: 2rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.75rem;
+    .video-card iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      border-radius: 18px;
     }
-    .video-play {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      border: 1px solid #2A2A2A;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.25rem;
-    }
-    .video-play svg { width: 18px; height: 18px; fill: var(--dim); margin-left: 3px; }
-    .video-title { font-size: 15px; font-weight: 500; color: #333; }
-    .video-sub { font-size: 12px; font-weight: 300; color: #2A2A2A; line-height: 1.6; max-width: 260px; }
-    /* When you have the link, replace the placeholder div with:
-       <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="video-card"> ... </a>
-       and update video-title color to var(--text) and video-sub to var(--muted) */
 
     /* ── $200 CARD ── */
     .card-200 {
@@ -251,13 +236,7 @@
   <!-- VIDEO -->
   <div class="section-label">Watch this first</div>
   <div class="video-card">
-    <div class="video-inner">
-      <div class="video-play">
-        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-      </div>
-      <div class="video-title">How to use this bundle</div>
-      <div class="video-sub">Replace this placeholder with your Google Drive video link when ready.</div>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5f778ZN08dE?si=gYICAP7R-pdkr1cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 
   <!-- $200 CARD -->
