@@ -15,8 +15,8 @@
       --card: #0C0C0C;
       --border: #1A1A1A;
       --text: #fff;
-      --muted: #888;
-      --dim: #444;
+      --muted: #aaa;
+      --dim: #666;
     }
 
     body {
@@ -218,6 +218,64 @@
     .footer-copy { font-size: 10px; color: #2A2A2A; letter-spacing: 0.04em; }
 
     @keyframes up { to { opacity: 1; transform: translateY(0); } }
+
+    /* ── START HERE LABEL ── */
+    .start-here-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px; letter-spacing: 0.14em;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+      padding-left: 2px;
+    }
+    .start-star { font-size: 13px; color: var(--cyan); }
+
+    /* ── START CARD HIGHLIGHT ── */
+    .card-start {
+      background: #040E10 !important;
+      border-color: var(--cyan) !important;
+      box-shadow: 0 0 0 1px var(--cyan), 0 0 28px rgba(0,200,224,0.13), 0 0 60px rgba(0,200,224,0.06) !important;
+    }
+    .card-start .card-200-header {
+      border-bottom-color: #0E3A40 !important;
+      background: rgba(0,200,224,0.04);
+    }
+
+    /* ── BROKER GRID ── */
+    .broker-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
+    .broker-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px;
+      background: #0F0F0F; border: 1px solid #1C1C1C;
+      border-radius: 12px; text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .broker-card:hover { border-color: var(--cyan); }
+    .broker-logo { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .broker-info { flex: 1; }
+    .broker-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .broker-tag { font-size: 11px; color: var(--muted); font-weight: 300; }
+    .broker-arrow { font-size: 14px; color: var(--dim); }
+
+    /* ── CHART CARD ── */
+    .chart-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      margin-bottom: 1rem;
+      opacity: 0; transform: translateY(12px);
+      animation: up 0.6s cubic-bezier(0.22,1,0.36,1) 0.4s forwards;
+    }
+    .chart-body { padding: 0; }
+    .chart-caption { padding: 10px 1.25rem 1rem; font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.5; }
+    .chart-toggle { display: flex; gap: 4px; }
+    .toggle-btn {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+      padding: 4px 12px; border-radius: 20px; border: 1px solid #1C1C1C;
+      background: transparent; color: var(--dim); cursor: pointer;
+      transition: all 0.15s; letter-spacing: 0.04em;
+    }
+    .toggle-btn.active { background: var(--cyan); color: #080808; border-color: var(--cyan); }
+    .toggle-btn:hover:not(.active) { border-color: var(--muted); color: var(--muted); }
   </style>
 </head>
 <body>
@@ -236,7 +294,7 @@
   <!-- VIDEO -->
   <div class="section-label">Watch this first</div>
   <div class="video-card">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/5f778ZN08dE?si=gYICAP7R-pdkr1cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/5f778ZN08dE" title="How to use the FCW Bundle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <!-- $200 CARD -->
@@ -264,6 +322,79 @@
       </div>
       <div class="verdict">
         <p>The money was always there.<br><strong>The decision wasn't.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIRST MOVE -->
+  <div class="start-here-label" style="margin-top:1.5rem;">
+    <span class="start-star">★</span> Start Here
+  </div>
+  <div class="card-200 card-start" style="animation-delay:0.3s;">
+    <div class="card-200-header">
+      <span>How to start investing</span>
+      <div class="live"><div class="live-dot"></div>3 steps</div>
+    </div>
+    <div class="card-200-body">
+      <p class="card-200-intro">You don't need to figure this out. <strong>Here's the exact first move.</strong></p>
+      <div class="modules" style="margin-bottom:1.25rem;">
+        <div class="module"><span class="module-num" style="color:var(--cyan);">01</span><span class="module-text">Open a free account at one of these brokers — takes 10 minutes</span></div>
+        <div class="module"><span class="module-num" style="color:var(--cyan);">02</span><span class="module-text">Search for <strong style="color:#fff;">VTI</strong> or <strong style="color:#fff;">VOO</strong> — one fund, the entire market</span></div>
+        <div class="module"><span class="module-num" style="color:var(--cyan);">03</span><span class="module-text">Set up $50/month auto-invest and leave it alone</span></div>
+      </div>
+
+      <!-- BROKER CARDS -->
+      <div class="broker-grid">
+        <a class="broker-card" href="https://robinhood.com" target="_blank">
+          <div class="broker-logo robinhood">
+            <svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="10" fill="#00C805"/>
+              <text x="24" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="white" font-family="Georgia,serif">R</text>
+            </svg>
+          </div>
+          <div class="broker-info">
+            <div class="broker-name">Robinhood</div>
+            <div class="broker-tag">Beginner friendly · No fees · App</div>
+          </div>
+          <span class="broker-arrow">→</span>
+        </a>
+        <a class="broker-card" href="https://www.webull.com" target="_blank">
+          <div class="broker-logo webull">
+            <svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="10" fill="#1A1F71"/>
+              <text x="24" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#00BFFF" font-family="Georgia,serif">W</text>
+            </svg>
+          </div>
+          <div class="broker-info">
+            <div class="broker-name">Webull</div>
+            <div class="broker-tag">Advanced charts · No fees · App</div>
+          </div>
+          <span class="broker-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="verdict" style="margin-top:1rem;">
+        <p>That's it. <strong>The course walks you through every step in detail.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE CHART -->
+  <div class="section-label" style="margin-top:1.5rem;">What you'd be buying</div>
+  <div class="chart-card">
+    <div class="card-200-header">
+      <span>Live chart</span>
+      <div class="chart-toggle">
+        <button class="toggle-btn active" onclick="switchChart('VTI')" id="btn-vti">VTI</button>
+        <button class="toggle-btn" onclick="switchChart('VOO')" id="btn-voo">VOO</button>
+      </div>
+    </div>
+    <div class="chart-body">
+      <div class="tradingview-widget-container" id="tv-widget" style="height:300px;">
+        <div id="tradingview_chart" style="height:100%;"></div>
+      </div>
+      <div class="chart-caption">
+        <span id="chart-label-text">VTI — Vanguard Total Stock Market ETF. Every major U.S. company in one fund.</span>
       </div>
     </div>
   </div>
@@ -329,5 +460,54 @@
   </div>
 
 </div>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script>
+  var tvWidget;
+  function loadChart(symbol) {
+    if (tvWidget) { tvWidget.remove(); }
+    tvWidget = new TradingView.widget({
+      container_id: 'tradingview_chart',
+      symbol: symbol,
+      interval: 'W',
+      timezone: 'America/New_York',
+      theme: 'dark',
+      style: '1',
+      locale: 'en',
+      toolbar_bg: '#0C0C0C',
+      enable_publishing: false,
+      allow_symbol_change: false,
+      hide_top_toolbar: false,
+      hide_side_toolbar: true,
+      save_image: false,
+      height: 300,
+      width: '100%',
+      backgroundColor: '#0C0C0C',
+      gridColor: 'rgba(255,255,255,0.03)',
+      overrides: {
+        'mainSeriesProperties.candleStyle.upColor': '#00C8E0',
+        'mainSeriesProperties.candleStyle.downColor': '#E24B4A',
+        'mainSeriesProperties.candleStyle.borderUpColor': '#00C8E0',
+        'mainSeriesProperties.candleStyle.borderDownColor': '#E24B4A',
+        'mainSeriesProperties.candleStyle.wickUpColor': '#00C8E0',
+        'mainSeriesProperties.candleStyle.wickDownColor': '#E24B4A',
+      }
+    });
+  }
+
+  function switchChart(symbol) {
+    document.getElementById('btn-vti').classList.toggle('active', symbol === 'VTI');
+    document.getElementById('btn-voo').classList.toggle('active', symbol === 'VOO');
+    const captions = {
+      'VTI': 'VTI — Vanguard Total Stock Market ETF. Every major U.S. company in one fund.',
+      'VOO': 'VOO — Vanguard S&P 500 ETF. The top 500 U.S. companies. Set it and forget it.'
+    };
+    document.getElementById('chart-label-text').textContent = captions[symbol];
+    loadChart(symbol);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    loadChart('VTI');
+  });
+</script>
 </body>
 </html>
